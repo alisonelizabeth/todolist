@@ -36,11 +36,9 @@ $('.add').click(function(event){
 
 function addToTaskList(task) {
 	var test = task.id 
-	var li = $('<div class="checkbox">' + '<input id="check-it" value='+test+' type="checkbox">' + '<li>' + task.get('task') + '</li>' + '</div>')
+	var li = $('<div class="checkbox">' + '<input id="check-it" value='+test+' type="checkbox">' + '<li>' + task.get('task') + '</li>')
 	$('#task-list').append(li)
 }
-
-
 
 $('.completed').click(function(){
 	var id = $("input:checked").val()
@@ -48,9 +46,10 @@ $('.completed').click(function(){
 	query.equalTo("objectId", id);
 	query.find({
 		success: function(results) {
-			$('#completed-list').append(results[0].get('task'));
+			$('#completed-list').append(results[0].get('task') + '<br>');
 			results[0].set("isComplete", true); 
 			results[0].save();
+			$('input:checked').parent().remove();
 		},
 		error: function(results, error) {
 			console.log(error.description)
@@ -58,15 +57,14 @@ $('.completed').click(function(){
 	})	
 })
 
-
 $('.delete').click(function(){
 	var id = $("input:checked").val()
 	var query = new Parse.Query(TaskClass);
 	query.equalTo("objectId", id);
 	query.find({
 		success: function(results) {
-
 			results[0].destroy(); 
+			$('input:checked').parent().remove();
 		},
 		error: function(results, error) {
 			console.log(error.description)
@@ -78,11 +76,11 @@ $('.delete').click(function(){
 $('.edit').click(function(){
 	var id = $("input:checked").val()
 	var query = new Parse.Query(TaskClass);
-	var inputVal = $('#form-input').val()
+	var inputVal = $('#form-input').val();
 	query.equalTo("objectId", id);
 	query.find({
 		success: function(results) {
-		
+
 			results[0].set("task",inputVal); 
 			results[0].save();
 		},
@@ -91,51 +89,4 @@ $('.edit').click(function(){
 		}
 	})	
 })
-
-
-// $('.completed').click(function(){
-// 	var self = this;
-// 	console.log(self)
-// 	var boxes = $('input:checked').val()
-// 	$('#completed-list').append(boxes)
-// })
-
-
-
-
-
-// $('.completed').click(function(){
-// 	// var boxes = $("input:checked") 
-// 	var self = this;
-// 	query = new Parse.Query(TaskClass);
-// 		query.get(self.one('input').get('id'), {
-// 			success: function(item) {
-// 				item.set('isComplete', true)
-// 				item.save();
-// 				item.remove()
-// 			}
-// 		}
-	
-// 	$('#completed-list').append(boxes)
-// })
-
-
-// query = new Parse.Query(ListItem);
-// 		query.get(self.one('input').get('id'), {
-// 			success: function(item) {
-// 			item.set('isComplete', true);
-// 			item.save();
-// 			self.remove();
-
-
-
-// $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
-
-// $('.delete').click(function(){
-// 	if 
-
-// })
-
-
-
 
