@@ -11,6 +11,7 @@ tasks.fetch({
 	success: function(collection) {
 		collection.each(function(task){
 			addToTaskList(task)
+			complete(task)
 		})
 	}
 })
@@ -34,24 +35,38 @@ $('.add').click(function(event){
 })
  
 
+
 function addToTaskList(task) {
 	var test = task.id 
 	var li = $('<div class="checkbox">' + '<input id="check-it" value='+test+' type="checkbox">' + '<li>' + task.get('task') + '</li>')
 	$('#task-list').append(li)
 }
 
+
+function complete (task) {
+  var li = $('<li>'+ task.get('task') + '</li>')
+  console.log(task)
+  	if (task.get('isComplete') === true) {
+  		$('#completed-list').append(li)
+  }
+}
+
+
+
 $('.completed').click(function(){
 	var id = $("input:checked").val()
 	var query = new Parse.Query(TaskClass);
 	query.equalTo("objectId", id);
 	query.find({
-		success: function(results) {
-			$('#completed-list').append(results[0].get('task') + '<br>');
-			results[0].set("isComplete", true); 
-			results[0].save();
+		success: function(result) {
 			$('input:checked').parent().remove();
+			result[0].set("isComplete", true); 
+			result[0].save();
+			// $('#completed-list').append(result[0].get('task') + '<br>');
+			complete(result[0]);
+
 		},
-		error: function(results, error) {
+		error: function(result, error) {
 			console.log(error.description)
 		}
 	})	
@@ -62,11 +77,11 @@ $('.delete').click(function(){
 	var query = new Parse.Query(TaskClass);
 	query.equalTo("objectId", id);
 	query.find({
-		success: function(results) {
-			results[0].destroy(); 
+		success: function(result) {
+			result[0].destroy(); 
 			$('input:checked').parent().remove();
 		},
-		error: function(results, error) {
+		error: function(result, error) {
 			console.log(error.description)
 		}
 	})	
@@ -79,12 +94,12 @@ $('.edit').click(function(){
 	var inputVal = $('#form-input').val();
 	query.equalTo("objectId", id);
 	query.find({
-		success: function(results) {
+		success: function(result) {
 
-			results[0].set("task",inputVal); 
-			results[0].save();
+			result[0].set("task",inputVal); 
+			result[0].save();
 		},
-		error: function(results, error) {
+		error: function(result, error) {
 			console.log(error.description)
 		}
 	})	
