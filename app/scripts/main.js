@@ -14,6 +14,7 @@ $('document').ready(function() {
 	addTask();	
 	completeTask();
 	deleteTask();	
+	editTask();
 }); 
 // end of document ready 
 
@@ -115,24 +116,32 @@ function complete (task) {
   }
 }
 
+function editTask () {
+	$('.save-edit').click(function(){	
+		var id = $('input:checked').val()
+		var query = new Parse.Query(TaskClass);
+		var inputVal = $('#edit-text').val();
+		query.equalTo('objectId', id);
+		query.find({
+			success: function(result) {
+				$('#edit-text').val('');
+				result[0].set('task',inputVal); 
+				result[0].save();
+				$('input:checked').parent().remove();
+				var test = result[0].id;
+				var li = $('<div class="checkbox">' + '<input id="check-it" value='+test+' type="checkbox">' + '<li>' + result[0].get('task') + '</li>');
+				$('#task-list').append(li);
 
-$('.save-edit').click(function(){	
-	var id = $('input:checked').val()
-	var query = new Parse.Query(TaskClass);
-	var inputVal = $('#edit-text').val();
-	query.equalTo('objectId', id);
-	query.find({
-		success: function(result) {
-			result[0].set('task',inputVal); 
-			result[0].save();
-		},
-		error: function(result, error) {
-			console.log(error.description)
-		}
-	})	
-})
+			},
+			error: function(result, error) {
+				console.log(error.description)
+			}
+		})	
+	})
+}
 
 
+// var li = $('<div class="checkbox">' + '<input id="check-it" value='+test+' type="checkbox">' + '<li>' + task.get('task') + '</li>');
 
 
 // function addTask () {
