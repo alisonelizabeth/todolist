@@ -70,7 +70,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
-        max-width: 730px;
+        max-width: 850px;
     }
 
     /* Remove the padding we set earlier */
@@ -108,9 +108,9 @@ h1 {
 }
 
 .head {
-    font-family: 'Volkhov', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 45px;
-    color: #8B8B8B;
+    color: #4E4C4C;;
 }
 
 img.manage {
@@ -122,12 +122,12 @@ img.manage {
     background: #FFFEF7;
     border-radius: 10px;
     width: 90%;
-    height: 700px;
+   /* height: 700px;*/
     padding: 0px 40px;
     border: 1px solid rgb(218, 215, 215);
     box-shadow: 1px 1px 1px 0.5 grey;
-   /* -webkit-transform: rotate(-5deg);*/
-}
+/*    -webkit-transform: rotate(-5deg);
+*/}
 
 .text {
 
@@ -168,17 +168,12 @@ img.manage {
 
 li {
     list-style-type: none;
+    font-family: 'Volkhov', sans-serif; 
+    font-size: 15px;
 }
 
 body { 
     background: url('../images/pink.png');}
-
-.complete {
-    h4 {
-        font-family: 'Josefin Sans', sans-serif;
-        text-align: center;
-    }
-}
 
 .header {
     h1 {
@@ -194,3 +189,10 @@ body {
 }
 }
 
+.glyphicon {
+    padding-right: 5px;
+}
+
+.complete {
+    padding-bottom: 20px;
+}
