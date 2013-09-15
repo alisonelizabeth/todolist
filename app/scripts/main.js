@@ -22,6 +22,7 @@ $('document').ready(function() {
 		success: function(result){
 			console.log('it worked');
 			addToTaskList(result);
+			$('#form-input').val('');
 		},
 		error: function(result, error){
 			console.log(error.description);
@@ -59,7 +60,6 @@ $('document').ready(function() {
 			}
 		});
 	});
-
 }); 
 // end of document ready 
 
@@ -86,7 +86,6 @@ function addToTaskList(task) {
 	var test = task.id;
 	if (task.get('isComplete') === false) {
 		var li = $('<div class="checkbox">' + '<input id="check-it" value='+test+' type="checkbox">' + '<li>' + task.get('task') + '</li>');
-		$('.complete h1').hide();
 		$('#task-list').append(li);
 		}
 	}
@@ -102,7 +101,6 @@ function complete (task) {
 
   }
 }
-
 
 
 // $('.edit').click(function(){
