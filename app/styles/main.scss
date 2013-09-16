@@ -110,7 +110,7 @@ h1 {
 .head {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 45px;
-    color: #4E4C4C;;
+    color: #333232;
 }
 
 img.manage {
@@ -119,14 +119,13 @@ img.manage {
 
 .form {
     position: relative;
-    background: #FFFEF7;
+    padding-bottom: 20px;
+    background: #EBEAE6;;
     border-radius: 10px;
     width: 80%;
-    border: 1px solid rgb(218, 215, 215);
+    border: 2px solid rgb(218, 215, 215);
     box-shadow: 1px 1px 1px 0.5 grey;
-    z-index: 5;
-/*    -webkit-transform: rotate(-5deg);
-*/}
+}
 
 .text {
 
@@ -173,7 +172,7 @@ li {
 
 body { 
   /*  background: url('../images/pink.png');}*/
-  background: #FFD7D3;
+  background: #496599;
 }
 
 .header {
@@ -202,6 +201,7 @@ body {
 .do-this {
     margin: 0px 0px;
     border-radius: 10px 10px 0px 0px;
+    color: #4E4C4C;
 
 }
 
@@ -210,7 +210,53 @@ hr.line {
         margin-top: 5px;
         margin-bottom: 30px;
         border: 0;
-        border-top: 1px solid #D2C9D6;
+        border-top: 2px solid #D2C9D6;
 }
 
+.highlight {
+    background: rgb(213, 106, 106);
+}
 
+.message p {
+    text-align: left;
+    margin-left: 140px;
+    padding-top: 5px;
+    color: #4E4C4C;
+    font-family: 'Volkhov', sans-serif;
+}
+
+.button {
+    font-size: 15px;
+    font-family: 'Volkhov', sans-serif;
+    height: 90px;
+    width: 90px;
+    border-radius: 90px;
+}
+
+.red {
+    color: white;
+    border: rgb(189, 38, 38) 3px solid;
+    background: linear-gradient(to bottom, #ff3019 19%,#cf0404 71%); /* W3C */
+    }
+
+.red:hover {
+    background: linear-gradient(to bottom, #ff3019 100%,#cf0404 100%); /* W3C */;
+}
+
+.purple {
+    color: white;
+    border: rgb(146, 5, 146) 3px solid;
+    background: linear-gradient(to bottom, #cb60b3 0%,#ad1283 50%,#de47ac 100%); /* W3C */
+}
+
+.purple:hover {
+    background: linear-gradient(to bottom, #cb60b3 4%,#de47ac 62%); /* W3C */}
+
+.grey {
+    color: #666666;
+    border: #BDBCBC 3px solid;
+    background: linear-gradient(to bottom, #fcfff4 0%,#dfe5d7 40%,#b3bead 100%); /* W3C */}
+
+.grey:hover{
+    background: linear-gradient(to bottom, #fcfff4 0%,#dfe5d7 40%); /* W3C */
+}

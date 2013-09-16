@@ -38,6 +38,7 @@ function fetchTaskCollection(tasks) {
 function addTask () {
 	$('.add').click(function(event){
 	event.preventDefault();
+	if (validateForm()) 
 	var task = new TaskClass();
 	var inputVal = $('#form-input').val();
 	task.set('task', inputVal);
@@ -53,8 +54,7 @@ function addTask () {
 			console.log(error.description);
 		}
 	});
-});
-
+})
 }
 
 // complete task and saves sets property isComplete to true  
@@ -93,6 +93,25 @@ function deleteTask () {
 		});
 	});
 }
+
+
+function validateForm () {
+			var valid = true;
+			$('#form-input').removeClass("highlight")
+			$('.message').html('<p> </p>')
+			$('#form-input').each(function(){
+				if ($(this).val() == "") {
+					valid = false
+					$(this).addClass("highlight")
+					$('.message').html('<p>*Please enter a task.</p>')
+				}
+			})
+			 return valid
+		}
+
+
+
+
 
 
 // adds incompleted tasks to task list 

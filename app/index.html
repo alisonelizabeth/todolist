@@ -29,7 +29,7 @@
           <h4 class="modal-title">Please edit your task.</h4>
         </div>
         <div class="modal-body">
-        <input type="text" class="form-control" id="edit-text" placeholder="Rewrite your task.">
+        <input type="text" class="form-control" id="edit-text" placeholder="I need to...">
 
         </div>
         <div class="modal-footer">
@@ -56,12 +56,10 @@
            <div class="text">
             <div class="todo">
                 <div class="header do-this">
-                <img class="purple" src="images/purple.png">
-                <h1>Do this</h1>
-                <img class="purple" src="images/purple.png">
-                <hr class="line">
-<!--                 <h4>Write a list of things you have to do and add it to the list.</h4>
- -->      
+<!--                 <img class="purple" src="images/purple.png">
+ -->                <h1>Do this</h1>
+<!--                 <img class="purple" src="images/purple.png">
+ -->                <hr class="line">    
                 </div>
               
              
@@ -72,6 +70,7 @@
                   </div>
                   <button type="submit" class="btn btn-default add">ADD</button>
                 </form>
+                <div class="message"></div>
 
             </div>
                 <div class="col-md-12 task">
@@ -79,9 +78,9 @@
                     <ul id="task-list"></ul>
                 </div>
                 <div class="col-md-12 check">
-                    <a data-toggle="modal" href="#myModal" class="btn btn-success edit">Edit</a>
-                    <button type="button" class="btn btn-primary completed">Complete</button>
-                    <button type="button" class="btn btn-danger delete">Delete</button>
+                    <button type="button" data-toggle="modal" href="#myModal" class="edit button grey">Edit</button>
+                    <button type="button" class="completed button purple">Complete</button>
+                    <button type="button" class="delete button red">Delete</button>
                 </div>
             
                 <div class="complete">
