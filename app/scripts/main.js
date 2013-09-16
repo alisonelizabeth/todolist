@@ -9,7 +9,7 @@ var tasks = new TaskClassCollection();
 
 
 $('document').ready(function() {
-	$('.complete h1').hide();
+	$('.complete').hide();
 	fetchTaskCollection(tasks);
 	addTask();	
 	completeTask();
@@ -109,7 +109,7 @@ function complete (task) {
   	var li = $('<li>'+ '<span class="glyphicon glyphicon-thumbs-up">' + '</span>' + task.get('task') + '</li>');
   		console.log(task);
   			if (task.get('isComplete') === true) {
-  				$('.complete h1').show();
+  				$('.complete').show();
   				$('#completed-list').append(li);
   				$('input:checked').parent().remove();
 

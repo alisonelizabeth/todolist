@@ -55,13 +55,16 @@
 
            <div class="text">
             <div class="todo">
-                <div class="header">
+                <div class="header do-this">
                 <img class="purple" src="images/purple.png">
                 <h1>Do this</h1>
                 <img class="purple" src="images/purple.png">
-
-                <h4>Write a list of things you have to do and add it to the list.</h4>
+                <hr class="line">
+<!--                 <h4>Write a list of things you have to do and add it to the list.</h4>
+ -->      
                 </div>
+              
+             
                 <form class="form-inline form-test" role="form">
                   <div class="form-group input-box">
                     <label class="sr-only" for="exampleInputEmail2"></label>
@@ -77,16 +80,13 @@
                 </div>
                 <div class="col-md-12 check">
                     <a data-toggle="modal" href="#myModal" class="btn btn-success edit">Edit</a>
-
-<!--                     <button type="button" class="btn btn-success edit">Edit</button>
- -->                    <button type="button" class="btn btn-primary completed">Complete</button>
+                    <button type="button" class="btn btn-primary completed">Complete</button>
                     <button type="button" class="btn btn-danger delete">Delete</button>
-
-  
                 </div>
             
                 <div class="complete">
                     <h1>Done that</h1>
+                    <hr class='line'>
                     <ul id="completed-list"></ul>
                 </div>
                 <!-- end of completed tasks -->
@@ -95,7 +95,7 @@
             </div> 
             <!-- end of form div -->
 
-
+           
 
         </div>
         <!-- end of container div -->

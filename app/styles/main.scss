@@ -121,11 +121,10 @@ img.manage {
     position: relative;
     background: #FFFEF7;
     border-radius: 10px;
-    width: 90%;
-   /* height: 700px;*/
-    padding: 0px 40px;
+    width: 80%;
     border: 1px solid rgb(218, 215, 215);
     box-shadow: 1px 1px 1px 0.5 grey;
+    z-index: 5;
 /*    -webkit-transform: rotate(-5deg);
 */}
 
@@ -173,9 +172,12 @@ li {
 }
 
 body { 
-    background: url('../images/pink.png');}
+  /*  background: url('../images/pink.png');}*/
+  background: #FFD7D3;
+}
 
 .header {
+
     h1 {
         display: inline-block;
         margin-right: 12px;
@@ -196,3 +198,19 @@ body {
 .complete {
     padding-bottom: 20px;
 }
+
+.do-this {
+    margin: 0px 0px;
+    border-radius: 10px 10px 0px 0px;
+
+}
+
+hr.line {
+        width: 80%;
+        margin-top: 5px;
+        margin-bottom: 30px;
+        border: 0;
+        border-top: 1px solid #D2C9D6;
+}
+
+

@@ -4,12 +4,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Mocha Spec Runner</title>
     <link rel="stylesheet" href="lib/mocha/mocha.css">
-    <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+ 
 </head>
 <body>
     <div id="mocha"></div>
+ 
+   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Please edit your task.</h4>
+        </div>
+        <div class="modal-body">
+        <input type="text" class="form-control" id="edit-text" placeholder="Rewrite your task.">
 
-    <div class="container">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary save-edit" data-dismiss="modal">Save changes</button>
+<!--           <button type="button" class="btn btn-primary save-edit">Save changes</button>
+ -->        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+        <div class="container">
             <div class="header">
                 <ul class="nav nav-pills pull-right">
                     <li class="active"><a href="#">Home</a></li>
@@ -24,33 +43,32 @@
 
            <div class="text">
             <div class="todo">
-                <div class="header">
-                <img class="purple" src="images/purple.png">
-                <h1>Do this</h1>
-                <img class="purple" src="images/purple.png">
-
-                <h4>Write a list of things you have to do and add it to the list.</h4>
+                <div class="header do-this">
+<!--                 <img class="purple" src="images/purple.png">
+ -->                <h1>Do this</h1>
+<!--                 <img class="purple" src="images/purple.png">
+ -->    
                 </div>
+                <div class="subhead">
+<!--                 <h4>Write a list of things you have to do and add it to the list.</h4>
+ -->                </div>
                 <form class="form-inline form-test" role="form">
                   <div class="form-group input-box">
                     <label class="sr-only" for="exampleInputEmail2"></label>
-                    <input class="form-control" id="form-input" placeholder="Write a task">
+                    <input class="form-control" id="form-input" placeholder="I need to...">
                   </div>
                   <button type="submit" class="btn btn-default add">ADD</button>
                 </form>
 
             </div>
                 <div class="col-md-12 task">
-                    <span>Tasks:</span>
+                   <!--  <span>Tasks:</span> -->
                     <ul id="task-list"></ul>
                 </div>
                 <div class="col-md-12 check">
-
-                    <button type="button" class="btn btn-success edit">Edit</button>
-                    <button type="button" class="btn btn-primary completed">Completed</button>
+                    <a data-toggle="modal" href="#myModal" class="btn btn-success edit">Edit</a>
+                    <button type="button" class="btn btn-primary completed">Complete</button>
                     <button type="button" class="btn btn-danger delete">Delete</button>
-
-  
                 </div>
             
                 <div class="complete">
@@ -63,25 +81,26 @@
             </div> 
             <!-- end of form div -->
 
-
+           
 
         </div>
 
-
-
+ 
+    
     <script src="lib/mocha/mocha.js"></script>
     <script>mocha.setup('bdd')</script>
     <!-- assertion framework -->
     <script src="lib/chai.js"></script>
     <script>var expect = chai.expect</script>
-
+ 
     <!-- include source files here... -->
-    <script src="../app/bower_components/jquery/jquery.js"></script>
     <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
-    <script src="../app/scripts/spec/main.js"></script>
+    <script src="../app/bower_components/jquery/jquery.js"></script>
+    <script src="../app/scripts/main.js"></script>
+    
     <!-- include spec files here... -->
     <script src="spec/test.js"></script>
-
+ 
     <script>mocha.run()</script>
 </body>
 </html>
