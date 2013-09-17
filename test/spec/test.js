@@ -94,32 +94,3 @@
 
 
 
-    // end of describe 
-
-  // it('should delete a task and that task should be deleted from Parse', function(done) {
-  //   var result;
-  //   var randomTask = 'Task #'+ Math.floor(Math.random()*10000000)
-  //   $('#form-input').val(randomTask)
-  //   $('.add').click();
-  //   $('input:checked');
-  //   $('.delete').click();
-
-  //   setTimeout(function() {
-  //     var query = new Parse.Query(TaskClass);
-  //     query.equalTo('task', randomTask);
-  //     query.find({
-  //       success: function(results){
-  //         var deleteWorked = true 
-  //         result = results[0];
-  //         if (result.get('task') ==== false) {
-  //           expect(deleteWorked).to.equal(true);
-  //           done();
-  //         }   
-  //       },
-  //       error: function (results, error) {
-  //         done(error.description);
-  //       } 
-  //     });
-  //   }, 2000)
-  // })
-// end it 

@@ -7,14 +7,20 @@ var TaskClassCollection = Parse.Collection.extend({
 
 var tasks = new TaskClassCollection();
 
-
 $('document').ready(function() {
 	$('.complete').hide();
 	fetchTaskCollection(tasks);
-	addTask();	
+	addTask();
+	$('.edit').click(function() {
+		if ($('#check-it:checked').length !== 0){
+		$('#myModal').modal();
+	}
+	});
 	completeTask();
 	deleteTask();	
-	editTask();
+	editTask();	
+		
+	// });
 }); 
 // end of document ready 
 
@@ -156,12 +162,55 @@ function editTask () {
 	})
 }
 
+// allows user to only click one checkbox at a time 
 function disableClick () {
- var checkboxes = $('input#check-it')
- checkboxes.click(function(){
- 	var self = this;
- 	checkboxes.each(function(){
- 		if (this!==self) this.checked = ''
+ 	var checkboxes = $('input#check-it')
+	checkboxes.click(function(){
+ 		var self = this;
+ 		checkboxes.each(function(){
+ 			if (this!==self) this.checked = ''
+ 		})
  	})
- })
 }
+
+function modal () {
+	$('#myModal').modal();
+}
+
+// function disableEdit () {
+// 	$('#check-it').click(function(){
+// 		if ($('#check-it:checked').length !== 0) {
+// 		$('.edit').click(function(){
+// 		$('#myModal').modal();
+// 		});
+// };
+// });
+// }
+// function edit () {
+// 		if ($('#check-it:checked').length === 0) {
+// 			$('.edit').attr('disabled', true)
+			
+// 		} else {
+// 			$('.edit').attr('disabled', false)
+// 		}
+
+// 	}
+
+
+
+// $(document).ready(function() {
+    // the_terms = $("#check-it");
+
+    // the_terms.click(function() {
+    //     if ($(this).is(":checked")) {
+    //         $(".edit").removeAttr("disabled");
+    //         $('#myModal').modal();
+    //     } else {
+    //         $(".edit").attr("disabled", "disabled");
+    //     }
+    // });
+// }); 
+
+
+
+
