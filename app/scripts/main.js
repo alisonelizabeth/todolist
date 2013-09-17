@@ -54,7 +54,7 @@ function addTask () {
 			console.log(error.description);
 		}
 	});
-})
+});
 }
 
 // complete task and saves sets property isComplete to true  
@@ -94,7 +94,7 @@ function deleteTask () {
 	});
 }
 
-
+// validates task input form 
 function validateForm () {
 			var valid = true;
 			$('#form-input').removeClass("highlight")
@@ -105,14 +105,9 @@ function validateForm () {
 					$(this).addClass("highlight")
 					$('.message').html('<p>*Please enter a task.</p>')
 				}
-			})
+			});
 			 return valid
 		}
-
-
-
-
-
 
 // adds incompleted tasks to task list 
 function addToTaskList(task) {
@@ -135,6 +130,7 @@ function complete (task) {
   }
 }
 
+// edits task and updates the li 
 function editTask () {
 	$('.save-edit').click(function(){	
 		var id = $('input:checked').val()
@@ -160,30 +156,6 @@ function editTask () {
 }
 
 
-// var li = $('<div class="checkbox">' + '<input id="check-it" value='+test+' type="checkbox">' + '<li>' + task.get('task') + '</li>');
-
-
-// function addTask () {
-// 	$('.add').click(function(event){
-// 	event.preventDefault();
-// 	var task = new TaskClass();
-// 	var inputVal = $('#form-input').val();
-// 	task.set('task', inputVal);
-// 	task.set('isComplete', false);
-
-// 	task.save(null, {
-// 		success: function(result){
-// 			console.log('it worked');
-// 			addToTaskList(result);
-// 			$('#form-input').val('');
-// 		},
-// 		error: function(result, error){
-// 			console.log(error.description);
-// 		}
-// 	});
-// });
-
-// }
 
 
 

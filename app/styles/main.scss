@@ -30,6 +30,7 @@ body {
 
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
+    font-weight: bold;
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
@@ -118,14 +119,15 @@ img.manage {
 }
 
 .form {
+    margin-left: 70px;
     position: relative;
     padding-bottom: 20px;
     background: #EBEAE6;;
     border-radius: 10px;
     width: 80%;
-    border: 2px solid rgb(218, 215, 215);
-    box-shadow: 1px 1px 1px 0.5 grey;
-}
+    border: 2px solid #DADADA;
+    box-shadow: 1px 0px 2px #888888; 
+}   
 
 .text {
 
@@ -158,7 +160,12 @@ img.manage {
     }
 
     .check {
-        padding-top: 20px;
+        margin-left: 160px;
+        border-radius: 30px;
+        width: 50%;
+        background: #E2E2E2;
+        padding-top: 0px;
+        padding-bottom: 10px;
         text-align: center;
     }
 
@@ -214,7 +221,7 @@ hr.line {
 }
 
 .highlight {
-    background: rgb(213, 106, 106);
+    background: #9C9FA3;
 }
 
 .message p {
@@ -231,6 +238,11 @@ hr.line {
     height: 90px;
     width: 90px;
     border-radius: 90px;
+}
+
+.button:active {
+    position: relative;
+    top: 1px;
 }
 
 .red {
@@ -259,4 +271,23 @@ hr.line {
 
 .grey:hover{
     background: linear-gradient(to bottom, #fcfff4 0%,#dfe5d7 40%); /* W3C */
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover {
+    background-color: rgb(131, 131, 131);   
+    color: white;
+}
+
+.nav a {
+    color: rgb(131, 131, 131);
+    font-family: 'Volkhov', sans-serif;
+}
+
+.modal-title {
+    text-align: center;
+    font-family: 'Volkhov', sans-serif;
+}
+
+.add {
+    font-family: 'Volkhov', sans-serif;
 }

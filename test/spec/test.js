@@ -27,22 +27,34 @@
  
       }, 2000)
     }); // end it()
-  });
 
-  it ('should add completed task to the ".completed" div', function(done) {
-      // var result;
+    it ('should add completed task to div with the class "completed"', function(done) {
+      var result;
       var randomTask = 'Task #'+ Math.floor(Math.random()*10000000)
       $('#form-input').val(randomTask)
       $('.add').click();
-      $('#check-it').click();
+      $('input#check-it').click();
       $('.completed').click();
 
-      setTimeout(function() {
-        var lastListItem = $('.complete #completed-list li').last().text()
-        expect(lastListItem).to.equal(randomTask)
-        done()
-      }, 3000)
-  })
+      setTimeout(function(){
+        var query = new Parse.Query(TaskClass);
+        query.equalTo('task', randomTask);
+        query.find({
+          success: function(results) {
+            result = results [0];
+            var li = $('<li>'+ '<span class="glyphicon glyphicon-thumbs-up">' + '</span>' + result[0].get('task') + '</li>');
+            if (result.get('isComplete') === true) {
+              expect(randomTask).to.equal(li);
+              done();
+            }
+            },
+          error: function(results, error) {
+            done(error.description);
+          }
+        })
+      })
+    }, 2000)
+  });
 
   // it('should delete a task and that task should be deleted from Parse', function(done) {
   //   var result;
@@ -73,3 +85,6 @@
 // end it 
 
 })();
+
+
+  
