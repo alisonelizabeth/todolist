@@ -26,6 +26,7 @@ function fetchTaskCollection(tasks) {
 			collection.each(function(task){
 				addToTaskList(task);
 				complete(task);
+				disableClick(task);
 		});
 	},
 		error: function(collection, error) {
@@ -155,11 +156,12 @@ function editTask () {
 	})
 }
 
-
-
-
-
-
-
-
-
+function disableClick () {
+ var checkboxes = $('input#check-it')
+ checkboxes.click(function(){
+ 	var self = this;
+ 	checkboxes.each(function(){
+ 		if (this!==self) this.checked = ''
+ 	})
+ })
+}
