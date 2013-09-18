@@ -17,7 +17,7 @@ $('document').ready(function() {
 	}
 	});
 	completeTask();
-	deleteTask();	
+	deleteTask();
 	editTask();	
 		
 	// });
@@ -101,6 +101,31 @@ function deleteTask () {
 	});
 }
 
+// edits task and updates the li 
+function editTask () {
+	$('.save-edit').click(function(){	
+		var id = $('input:checked').val()
+		var query = new Parse.Query(TaskClass);
+		var inputVal = $('#edit-text').val();
+		query.equalTo('objectId', id);
+		query.find({
+			success: function(result) {
+				$('#edit-text').val('');
+				result[0].set('task',inputVal); 
+				result[0].save();
+				$('input:checked').parent().remove();
+				var test = result[0].id;
+				var li = $('<div class="checkbox">' + '<input id="check-it" value='+test+' type="checkbox">' + '<li>' + result[0].get('task') + '</li>');
+				$('#task-list').append(li);
+
+			},
+			error: function(result, error) {
+				console.log(error.description)
+			}
+		});	
+	});
+}
+
 // validates task input form 
 function validateForm () {
 			var valid = true;
@@ -111,6 +136,21 @@ function validateForm () {
 					valid = false
 					$(this).addClass("highlight")
 					$('.message').html('<p>*Please enter a task.</p>')
+				}
+			});
+			 return valid
+		}
+
+// validates input on modal 
+function validateModalForm () {
+			var valid = true;
+			$('#edit-text').removeClass("highlight")
+			$('.modal-message').html('<p> </p>')
+			$('#edit-text').each(function(){
+				if ($(this).val() == "") {
+					valid = false
+					$(this).addClass("highlight")
+					$('.modal-message').html('<p>*Please enter a task.</p>')
 				}
 			});
 			 return valid
@@ -137,31 +177,6 @@ function complete (task) {
   }
 }
 
-// edits task and updates the li 
-function editTask () {
-	$('.save-edit').click(function(){	
-		var id = $('input:checked').val()
-		var query = new Parse.Query(TaskClass);
-		var inputVal = $('#edit-text').val();
-		query.equalTo('objectId', id);
-		query.find({
-			success: function(result) {
-				$('#edit-text').val('');
-				result[0].set('task',inputVal); 
-				result[0].save();
-				$('input:checked').parent().remove();
-				var test = result[0].id;
-				var li = $('<div class="checkbox">' + '<input id="check-it" value='+test+' type="checkbox">' + '<li>' + result[0].get('task') + '</li>');
-				$('#task-list').append(li);
-
-			},
-			error: function(result, error) {
-				console.log(error.description)
-			}
-		})	
-	})
-}
-
 // allows user to only click one checkbox at a time 
 function disableClick () {
  	var checkboxes = $('input#check-it')
@@ -169,48 +184,6 @@ function disableClick () {
  		var self = this;
  		checkboxes.each(function(){
  			if (this!==self) this.checked = ''
- 		})
- 	})
+ 		});
+ 	});
 }
-
-function modal () {
-	$('#myModal').modal();
-}
-
-// function disableEdit () {
-// 	$('#check-it').click(function(){
-// 		if ($('#check-it:checked').length !== 0) {
-// 		$('.edit').click(function(){
-// 		$('#myModal').modal();
-// 		});
-// };
-// });
-// }
-// function edit () {
-// 		if ($('#check-it:checked').length === 0) {
-// 			$('.edit').attr('disabled', true)
-			
-// 		} else {
-// 			$('.edit').attr('disabled', false)
-// 		}
-
-// 	}
-
-
-
-// $(document).ready(function() {
-    // the_terms = $("#check-it");
-
-    // the_terms.click(function() {
-    //     if ($(this).is(":checked")) {
-    //         $(".edit").removeAttr("disabled");
-    //         $('#myModal').modal();
-    //     } else {
-    //         $(".edit").attr("disabled", "disabled");
-    //     }
-    // });
-// }); 
-
-
-
-
