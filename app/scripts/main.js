@@ -32,7 +32,7 @@ function fetchTaskCollection(tasks) {
 			collection.each(function(task){
 				addToTaskList(task);
 				complete(task);
-				disableClick(task);
+				disableClick();
 		});
 	},
 		error: function(collection, error) {
@@ -56,6 +56,7 @@ function addTask () {
 			console.log('it worked');
 			addToTaskList(result);
 			$('#form-input').val('');
+			disableClick();
 		},
 		error: function(result, error){
 			console.log(error.description);
@@ -103,7 +104,8 @@ function deleteTask () {
 
 // edits task and updates the li 
 function editTask () {
-	$('.save-edit').click(function(){	
+	$('.save-edit').click(function(){
+		if (validateModalForm ())
 		var id = $('input:checked').val()
 		var query = new Parse.Query(TaskClass);
 		var inputVal = $('#edit-text').val();
