@@ -24,9 +24,11 @@ body {
 }
 
 /* Custom page header */
-/*.header {
-    border-bottom: 1px solid #e5e5e5;
-}*/
+.header {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 0 !important;
+}
 
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -88,6 +90,12 @@ body {
     /* Remove the bottom border on the jumbotron for visual effect */
     .jumbotron {
         border-bottom: 0;
+    }
+
+    .button {
+        font-size: 12px;
+        height: 70px;
+        width: 70px;
     }
 }
 
@@ -178,7 +186,6 @@ li {
 }
 
 body { 
-  /*  background: url('../images/pink.png');}*/
   background: #496599;
 }
 
